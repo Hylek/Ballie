@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
     public Button quitButton;
     public Button moveLeft;
     public Button moveRight;
+    private Renderer ren;
 
     // Use this for initialization
     void Start ()
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour {
         quitButton.interactable = false;
         life = 1;
         rb = GetComponent<Rigidbody>();
+        ren = GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
@@ -68,6 +70,8 @@ public class Player : MonoBehaviour {
     public void IsDead()
     {
         life = 0;
+        ParticleController.Instance.PlayerDeath(transform.position);
+        ren.enabled = false;
     }
 
     private void GameOver()

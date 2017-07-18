@@ -7,16 +7,15 @@ public class ParticleController : MonoBehaviour
 
     public ParticleSystem smokeEffect;
     public ParticleSystem moverEffect;
+    public ParticleSystem playerRIP;
 
     void Awake()
     {
-        // Register the singleton
         if (Instance != null)
         {
             Debug.LogError("Multiple instances of SpecialEffectsHelper!");
         }
-
-        Instance = this;
+       Instance = this;
     }
 
     public void Explosion(Vector3 position)
@@ -26,6 +25,10 @@ public class ParticleController : MonoBehaviour
     public void MoverExplosion(Vector3 position)
     {
         instantiate(moverEffect, position);
+    }
+    public void PlayerDeath(Vector3 position)
+    {
+        instantiate(playerRIP, position);
     }
 
     private ParticleSystem instantiate(ParticleSystem prefab, Vector3 position)
