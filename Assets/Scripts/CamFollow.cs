@@ -5,14 +5,23 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour {
 
     public GameObject player;
+    private Player pScript;
     public float camDistance;
     public float camHeight;
 
+    void Start()
+    {
+        pScript = player.GetComponent<Player>();
+    }
+
     void Update()
     {
-        Vector3 pos = player.transform.position;
-        pos.z -= camDistance;
-        pos.y += camHeight;
-        transform.position = pos;
+        if(pScript.life == 1)
+        {
+            Vector3 pos = player.transform.position;
+            pos.z -= camDistance;
+            pos.y += camHeight;
+            transform.position = pos;
+        }
     }
 }

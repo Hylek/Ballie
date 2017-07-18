@@ -12,7 +12,8 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public bool leftPressed;
     public int score;
-    private int life;
+    [HideInInspector]
+    public int life;
     private float minTime = 3.0f;
     public CanvasGroup retry;
     public CanvasGroup quit;
