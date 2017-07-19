@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+/* Copyright @ 2017 Daniel Cumbor */
 public class Mover : MonoBehaviour {
 
     // Variables

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+/* Copyright @ 2017 Daniel Cumbor */
 public class Player : MonoBehaviour {
 
     // Variables
-    Rigidbody rb;
+    private Rigidbody rb;
+    private SphereCollider sc;
     public float speed = 0.33f;
     [HideInInspector]
     public bool rightPressed;
@@ -14,7 +15,6 @@ public class Player : MonoBehaviour {
     public int score;
     [HideInInspector]
     public int life;
-    private float minTime = 3.0f;
     public CanvasGroup retry;
     public CanvasGroup quit;
     public Button retryButton;
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
         life = 1;
         rb = GetComponent<Rigidbody>();
         ren = GetComponent<Renderer>();
+        sc = GetComponent<SphereCollider>();
 	}
 	
 	// Update is called once per frame
@@ -48,8 +49,8 @@ public class Player : MonoBehaviour {
 
         if(life == 0)
         {
-            retry.alpha = 0 + Time.time;
-            quit.alpha = 0 + Time.time;
+            retry.alpha += 0.1f;
+            quit.alpha += 0.1f;
             GameOver();
         }
     }
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour {
 
     private void GameOver()
     {
-        Debug.Log("Player is dead!");
+        sc.enabled = false;
         retryButton.interactable = true;
         quitButton.interactable = true;
         moveLeft.interactable = false;

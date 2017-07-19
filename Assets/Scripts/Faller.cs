@@ -25,12 +25,11 @@ public class Faller : MonoBehaviour {
     {
         if(col.transform.gameObject.name == "Platform")
         {
-           ParticleController.Instance.Explosion(transform.position);
+           ParticleController.Instance.FallerExplosion(transform.position);
            Destroy(gameObject);
         }
         if (col.transform.gameObject.name == "Player")
         {
-            //Destroy(col.gameObject);
             col.gameObject.SendMessage("IsDead");
         }
     }

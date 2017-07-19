@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+/* Copyright @ 2017 Daniel Cumbor */
 public class Timer : MonoBehaviour {
 
     // Variables
@@ -9,6 +9,8 @@ public class Timer : MonoBehaviour {
     private float t;
     private string minutes;
     private string seconds;
+    public GameObject playerRef;
+    private Player playerScript;
 
     void Start()
     {
@@ -18,12 +20,16 @@ public class Timer : MonoBehaviour {
         start = 0;
         minutes = null;
         seconds = null;
+        playerScript = playerRef.GetComponent<Player>();
     }
 
 	// Update is called once per frame
 	void Update ()
     {
-        t = start += Time.deltaTime;
+        if(playerScript.life == 1)
+        {
+            t = start += Time.deltaTime;
+        }
 
         minutes = ((int)t / 60).ToString();
         seconds = (t % 60).ToString("f2");

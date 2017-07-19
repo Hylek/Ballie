@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/* Copyright @ 2017 Daniel Cumbor */
 public class CamFollow : MonoBehaviour {
 
+    // Variables
     public GameObject player;
     private Player pScript;
     public float camDistance;

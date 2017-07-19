@@ -215,7 +215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 0, y: -432.1}
   m_SizeDelta: {x: 230, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &39590255
@@ -1371,7 +1371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -350}
+  m_AnchoredPosition: {x: 0, y: -549.01}
   m_SizeDelta: {x: 230, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &223622337
@@ -2360,7 +2360,7 @@ GameObject:
   - component: {fileID: 431064573}
   - component: {fileID: 431064572}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: fallerParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2474,7 +2474,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 743327564
+  randomSeed: -1229316028
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5833,7 +5833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82236f01eee304787ace9140c397d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
+  minTime: 0
   maxTime: 15
   enemies:
   - {fileID: 1699573696360966, guid: 192fcc56bebfa4d40b7607f380491dd6, type: 2}
@@ -6957,7 +6957,6 @@ GameObject:
   m_Component:
   - component: {fileID: 804999251}
   - component: {fileID: 804999250}
-  - component: {fileID: 804999249}
   - component: {fileID: 804999248}
   - component: {fileID: 804999247}
   - component: {fileID: 804999246}
@@ -7031,19 +7030,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &804999249
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 135326390674484248, guid: f9f55f1c54e19884c9df3d90e446da82,
-    type: 2}
-  m_PrefabInternal: {fileID: 1570793292}
-  m_GameObject: {fileID: 804999245}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &804999250
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12354,7 +12340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f6bc51d6bf364ca9bcd219f5329b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokeEffect: {fileID: 431064573}
+  fallerEffect: {fileID: 431064573}
   moverEffect: {fileID: 1008086327}
   playerRIP: {fileID: 1569975716}
 --- !u!4 &1016687911
@@ -13825,7 +13811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82236f01eee304787ace9140c397d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
+  minTime: 0
   maxTime: 15
   enemies:
   - {fileID: 1699573696360966, guid: 192fcc56bebfa4d40b7607f380491dd6, type: 2}
@@ -14360,7 +14346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82236f01eee304787ace9140c397d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
+  minTime: 0
   maxTime: 15
   enemies:
   - {fileID: 1699573696360966, guid: 192fcc56bebfa4d40b7607f380491dd6, type: 2}
@@ -18222,7 +18208,8 @@ Prefab:
       propertyPath: moveRight
       value: 
       objectReference: {fileID: 904554308}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: f9f55f1c54e19884c9df3d90e446da82, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1578033270
@@ -18265,7 +18252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82236f01eee304787ace9140c397d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
+  minTime: 0
   maxTime: 15
   enemies:
   - {fileID: 1699573696360966, guid: 192fcc56bebfa4d40b7607f380491dd6, type: 2}
@@ -19550,7 +19537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -145, y: 600}
+  m_AnchoredPosition: {x: -145, y: 580}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862079527
@@ -19603,6 +19590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4649a9ac66a4e504c8e74d01319e4576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRef: {fileID: 804999245}
 --- !u!1 &1863326236
 GameObject:
   m_ObjectHideFlags: 0
@@ -20430,7 +20418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82236f01eee304787ace9140c397d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
+  minTime: 0
   maxTime: 15
   enemies:
   - {fileID: 1699573696360966, guid: 192fcc56bebfa4d40b7607f380491dd6, type: 2}

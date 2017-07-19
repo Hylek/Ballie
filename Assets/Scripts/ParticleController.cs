@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
-
+/* Copyright @ 2017 Daniel Cumbor */
 public class ParticleController : MonoBehaviour
 {
-
+    // Variables
     public static ParticleController Instance;
-
-    public ParticleSystem smokeEffect;
+    public ParticleSystem fallerEffect;
     public ParticleSystem moverEffect;
     public ParticleSystem playerRIP;
 
     void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.LogError("Multiple instances of SpecialEffectsHelper!");
-        }
        Instance = this;
     }
 
-    public void Explosion(Vector3 position)
+    public void FallerExplosion(Vector3 position)
     {
-        instantiate(smokeEffect, position);
+        instantiate(fallerEffect, position);
     }
     public void MoverExplosion(Vector3 position)
     {
@@ -33,18 +28,8 @@ public class ParticleController : MonoBehaviour
 
     private ParticleSystem instantiate(ParticleSystem prefab, Vector3 position)
     {
-        ParticleSystem newParticleSystem = Instantiate(
-          prefab,
-          position,
-          Quaternion.identity
-        ) as ParticleSystem;
-
-        // Make sure it will be destroyed
-        Destroy(
-          newParticleSystem.gameObject,
-          newParticleSystem.startLifetime
-        );
-
+        ParticleSystem newParticleSystem = Instantiate(prefab, position, Quaternion.identity) as ParticleSystem;
+        Destroy(newParticleSystem.gameObject, newParticleSystem.startLifetime);
         return newParticleSystem;
     }
 }
