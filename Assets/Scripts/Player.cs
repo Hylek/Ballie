@@ -30,16 +30,11 @@ public class Player : MonoBehaviour
     private Renderer ren;
     private static int plays;
     private bool playOver = false;
-    private static int showAd;
 
     // Use this for initialization
     void Start ()
     {
-        if(showAd == 1)
-        {
-            ShowAd();
-            showAd = 0;
-        }
+        ShowAd();
         retryButton.interactable = false;
         quitButton.interactable = false;
         life = 1;
@@ -144,11 +139,6 @@ public class Player : MonoBehaviour
         quitButton.interactable = true;
         moveLeft.interactable = false;
         moveRight.interactable = false;
-
-        if(plays == 2 || plays == 4)
-        {
-            showAd = 1;
-        }
         if (plays == 5)
         {
             plays = 0;
