@@ -17,15 +17,21 @@ public class Player : MonoBehaviour
     public int life;
     public CanvasGroup retry;
     public CanvasGroup quit;
+    public CanvasGroup time;
+    public CanvasGroup cover;
     public Button retryButton;
     public Button quitButton;
     public Button moveLeft;
     public Button moveRight;
+    public Text timer;
+    public Text finalScore;
+    public Image coverHold;
     private Renderer ren;
 
     // Use this for initialization
     void Start ()
     {
+        //finalScore.enabled = false;
         retryButton.interactable = false;
         quitButton.interactable = false;
         life = 1;
@@ -37,6 +43,12 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        cover.alpha -= 0.05f;
+        if(cover.alpha == 0)
+        {
+            coverHold.enabled = false;
+        }
+
         if (leftPressed)
         {
             rb.AddForce(Vector2.left * speed);
@@ -49,8 +61,9 @@ public class Player : MonoBehaviour
 
         if(life == 0)
         {
-            retry.alpha += 0.1f;
-            quit.alpha += 0.1f;
+            retry.alpha += 0.01f;
+            quit.alpha += 0.01f;
+            time.alpha += 0.01f;
             GameOver();
         }
     }
@@ -77,6 +90,8 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
+        timer.enabled = false;
+        finalScore.enabled = true;
         sc.enabled = false;
         retryButton.interactable = true;
         quitButton.interactable = true;

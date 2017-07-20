@@ -4,6 +4,7 @@ public class Mover : MonoBehaviour
 {
     // Variables
     private Rigidbody rb;
+    private AudioSource blop;
     public int speed;
     private float deathTimer;
     private Player player;
@@ -14,6 +15,7 @@ public class Mover : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+        blop = GetComponent<AudioSource>();
         deathTimer = 7;
     }
 
@@ -44,6 +46,7 @@ public class Mover : MonoBehaviour
     {
         if(col.transform.gameObject.name == "Player")
         {
+            blop.Play();
             ParticleController.Instance.MoverExplosion(transform.position);
             col.gameObject.SendMessage("IsDead");
         }

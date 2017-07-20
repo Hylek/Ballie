@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.0
+  bundleVersion: 0.9.1
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -230,7 +230,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: fd64c340293a10847931ce998a71d185, type: 3}
+      m_Icon: {fileID: 2800000, guid: 8d8ef184e0b2a0a4990476a60f84b4b2, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
