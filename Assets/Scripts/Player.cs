@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 /* Copyright @ 2017 Daniel Cumbor */
 public class Player : MonoBehaviour
 {
@@ -27,11 +28,18 @@ public class Player : MonoBehaviour
     public Text finalScore;
     public Image coverHold;
     private Renderer ren;
+    private static int plays;
+    private bool playOver = false;
+    private static int showAd;
 
     // Use this for initialization
     void Start ()
     {
-        //finalScore.enabled = false;
+        if(showAd == 1)
+        {
+            ShowAd();
+            showAd = 0;
+        }
         retryButton.interactable = false;
         quitButton.interactable = false;
         life = 1;
@@ -66,6 +74,40 @@ public class Player : MonoBehaviour
             time.alpha += 0.01f;
             GameOver();
         }
+        if(plays == 5)
+        {
+            plays = 0;
+        }
+    }
+
+    public void ShowAd()
+    {
+        var options = new ShowOptions { resultCallback = AdResult };
+        if(Advertisement.IsReady())
+        {
+            Time.timeScale = 0;
+            Advertisement.Show(options);
+        }
+    }
+
+    private void AdResult(ShowResult result)
+    {
+        switch(result)
+        {
+            case ShowResult.Finished:
+                Debug.Log("Ad shown properly!");
+                Time.timeScale = 1;
+                // Potential reward here!
+                break;
+            case ShowResult.Failed:
+                Debug.Log("The ad failed to show");
+                Time.timeScale = 1;
+                break;
+            case ShowResult.Skipped:
+                Debug.Log("The player chose to skip the ad");
+                Time.timeScale = 1;
+                break;
+        }
     }
 
     void OnCollisionExit(Collision other)
@@ -90,6 +132,11 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
+        if(!playOver)
+        {
+            plays += 1;
+            playOver = true;
+        }
         timer.enabled = false;
         finalScore.enabled = true;
         sc.enabled = false;
@@ -97,6 +144,15 @@ public class Player : MonoBehaviour
         quitButton.interactable = true;
         moveLeft.interactable = false;
         moveRight.interactable = false;
+
+        if(plays == 2 || plays == 4)
+        {
+            showAd = 1;
+        }
+        if (plays == 5)
+        {
+            plays = 0;
+        }
     }
 
     public void Quit()
