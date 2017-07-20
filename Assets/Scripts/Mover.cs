@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 /* Copyright @ 2017 Daniel Cumbor */
-public class Mover : MonoBehaviour {
-
+public class Mover : MonoBehaviour
+{
     // Variables
-    Rigidbody rb;
+    private Rigidbody rb;
     public int speed;
     private float deathTimer;
-    Player player;
-    Material mat;
+    private Player player;
+    private Material mat;
     private float fadeTime = 3f;
 
     // Use this for initialization

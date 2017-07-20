@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 /* Copyright @ 2017 Daniel Cumbor */
-public class Timer : MonoBehaviour {
-
+public class Timer : MonoBehaviour
+{
     // Variables
     private Text timer;
     private float start;

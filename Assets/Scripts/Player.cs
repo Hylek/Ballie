@@ -2,8 +2,8 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 /* Copyright @ 2017 Daniel Cumbor */
-public class Player : MonoBehaviour {
-
+public class Player : MonoBehaviour
+{
     // Variables
     private Rigidbody rb;
     private SphereCollider sc;
