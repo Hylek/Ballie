@@ -124,7 +124,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.1
+  bundleVersion: 1.0.5
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -144,8 +144,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DanielCumbor.Ballie
   buildNumber: {}
-  AndroidBundleVersionCode: 2
-  AndroidMinSdkVersion: 21
+  AndroidBundleVersionCode: 5
+  AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
