@@ -18,14 +18,16 @@ public class Player : MonoBehaviour
     public int life;
     public CanvasGroup retry;
     public CanvasGroup quit;
-    public CanvasGroup time;
+    public CanvasGroup timerScoreCG;
+    public CanvasGroup timerCG;
+    public CanvasGroup highscoreCG;
     public CanvasGroup cover;
     public Button retryButton;
     public Button quitButton;
     public Button moveLeft;
     public Button moveRight;
     public Text timer;
-    public Text finalScore;
+    public Text timerScore;
     public Image coverHold;
     private Renderer ren;
     private static int plays;
@@ -34,7 +36,10 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        ShowAd();
+        if(plays == 2 || plays == 4)
+        {
+            ShowAd();
+        }
         retryButton.interactable = false;
         quitButton.interactable = false;
         life = 1;
@@ -46,7 +51,10 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        cover.alpha -= 0.05f;
+        if(coverHold.enabled)
+        {
+            cover.alpha -= 0.05f;
+        }
         if(cover.alpha == 0)
         {
             coverHold.enabled = false;
@@ -66,7 +74,9 @@ public class Player : MonoBehaviour
         {
             retry.alpha += 0.01f;
             quit.alpha += 0.01f;
-            time.alpha += 0.01f;
+            timerScoreCG.alpha += 0.01f;
+            timerCG.alpha -= 0.01f;
+            highscoreCG.alpha += 0.01f;
             GameOver();
         }
         if(plays == 5)
@@ -133,7 +143,7 @@ public class Player : MonoBehaviour
             playOver = true;
         }
         timer.enabled = false;
-        finalScore.enabled = true;
+        timerScore.enabled = true;
         sc.enabled = false;
         retryButton.interactable = true;
         quitButton.interactable = true;

@@ -6,7 +6,8 @@ public class Timer : MonoBehaviour
     // Variables
     private Text timer;
     private float start;
-    private float t;
+    public float t;
+    private static float highscore;
     private string minutes;
     private string seconds;
     public GameObject playerRef;
@@ -29,6 +30,11 @@ public class Timer : MonoBehaviour
         if(playerScript.life == 1)
         {
             t = start += Time.deltaTime;
+        }
+        if(playerScript.life == 0)
+        {
+            highscore = t;
+            Debug.Log(highscore);
         }
 
         minutes = ((int)t / 60).ToString();
