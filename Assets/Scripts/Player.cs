@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
     // Variables
     private Rigidbody rb;
     private SphereCollider sc;
+    private Renderer ren;
+    private static int plays;
+    private bool playOver = false;
+    private bool coverPlay;
+
     public float speed = 0.33f;
     [HideInInspector]
     public bool rightPressed;
@@ -29,13 +34,11 @@ public class Player : MonoBehaviour
     public Text timer;
     public Text timerScore;
     public Image coverHold;
-    private Renderer ren;
-    private static int plays;
-    private bool playOver = false;
 
     // Use this for initialization
     void Start ()
     {
+        coverPlay = true;
         if(plays == 2 || plays == 4)
         {
             ShowAd();
@@ -51,13 +54,13 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(coverHold.enabled)
+        if(coverHold.enabled && coverPlay)
         {
             cover.alpha -= 0.05f;
-        }
-        if(cover.alpha == 0)
-        {
-            coverHold.enabled = false;
+            if(cover.alpha == 0)
+            {
+                coverPlay = false;
+            }
         }
 
         if (leftPressed)
@@ -77,6 +80,10 @@ public class Player : MonoBehaviour
             timerScoreCG.alpha += 0.01f;
             timerCG.alpha -= 0.01f;
             highscoreCG.alpha += 0.01f;
+            if (cover.alpha < 0.5)
+            {
+                cover.alpha += 0.01f;
+            }
             GameOver();
         }
         if(plays == 5)

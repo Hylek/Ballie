@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour
         if(playerScript.life == 0)
         {
             highscore = t;
-            Debug.Log(highscore);
         }
 
         minutes = ((int)t / 60).ToString();
